@@ -329,33 +329,91 @@ section{
 {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 2rem;
 }
-.education-row .education-colum
+.education-row .education-column
     {
         flex: 1 1 40rem;
     }
-.education-colum .title
+.education-column .title
 {
     font-size :2.7rem;
-    margin: 1 1 1.5rem 2rem;
+    margin: 0 0 1.5rem 2rem;
 }
 
-.education-colum .education-box
+.education-column .education-box
 {
     border-left: .2rem solid var(--main-color);
 
 }
 .education-box .education-content
 {
+   
     position: relative;
     padding-left: 2rem;
 }
-.education-box .education-content .content 
+.education-box .education-content ::before
 {
-    position:relative;
-    padding: 1.5rem;
-    border: .2rem var(--main-color);
-    border-radius:10%;
-    margin-bottom: 3rem;
+    content:'';
+    position: absolute;
+    top:0;
+    left:-3.3rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--main-color);
+    border-radius: 50%;
 }
+.education-content .content 
+{
+    border: .2rem solid var(--main-color);
+    position: relative;
+    padding: 1.5rem;
+    border-radius:1.9rem;
+    margin-bottom: 2rem;
+}
+.education-content .content ::before {
+
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 0;
+    height: 100%;
+    border-radius: 1.9rem;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition:.5s;
+}
+.education-content .content:hover ::before
+{
+    width: 100%;
+}
+.education-content .content .year
+{
+    font-size :1.5 rem;
+    color:  var(--main-color);
+    padding-bottom : .5rem;
+}
+
+.education-content .content .year
+{
+    padding-bottom: .5rem;
+}
+.education-content .content i
+{
+    padding-right: .5rem;
+}
+.education-content .content h3
+{
+    font-size: 1.6rem;
+}
+.education-content .content p
+{
+    font-size  : 1rem;
+    padding-top: .5rem;
+}
+
+
+
+
+
