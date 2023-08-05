@@ -1,3 +1,14 @@
+// toggle icon navbar
+let menuIcon =document.querySelector('#menu-icon');
+let navbar =document.querySelector('.navbar');
+
+
+menuIcon.onclick = () =>
+{
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+}
+
 //scroll sections
 
 let sections = document.querySelectorAll('section');
@@ -17,7 +28,7 @@ window.onscroll = () => {
             navlinks.forEach(links =>
                 {
                     links.classList.remove('active');
-                    document.querySelector('header nav a[href*=' + id + ']').classlist.add('active');
+                    document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
                 });
         }
     });
