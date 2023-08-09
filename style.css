@@ -57,10 +57,15 @@ body
 }
 .logo
     {
+        position: relative;
         font-size: 2.5rem;
         color:rgb(255, 255, 255);
         font-weight: 600;
     }
+.navbar
+{
+    position: relative;
+}
 
 .navbar a /*This is a CSS selector. 
             It selects all anchor elements (<a>) that are descendants of an element with the class .navbar.*/
@@ -82,6 +87,7 @@ body
     }
 #menu-icon
     {
+        position: relative;
         font-size: 2.5rem;
         color:antiquewhite;
         cursor : pointer; /*The CSS property cursor: pointer; is used to change the appearance of the mouse cursor when it hovers over an element.
@@ -107,9 +113,12 @@ section{
 .home-content
     {
         max-width : 60rem;
+        z-index: 99;
     }
 .home-content h1
     {
+        position: relative;
+        display: inline-block;
         font-size : 40px;
         font-weight :800;
         line-height: 4.3;
@@ -131,6 +140,7 @@ section{
     }
     .home-content p
     {
+        position: relative;
         font-size : 1.6rem;
         margin: 2rem 0 4rem;
         color: #ffffff;
@@ -293,6 +303,7 @@ section{
         border-bottom: .2rem solid var(--second-bg-color);
         border-right: .2rem solid var(--main-color);
         border-left: .2rem solid var(--main-color);
+        animation: aboutSpinner 8s linear infinite;
     }
     .about-content
     {
@@ -687,6 +698,30 @@ section{
         color:var(--main-color);
     }
 
+/* animation reload and scroll eikhan theke animation control krbo*/ 
+
+.animate 
+{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 98;
+}
+.animate.home-img
+{
+    width: 100%;
+}
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate
+{
+    animation: showRight 1s ease forwards;
+    animation-delay:calc(.05s * var(--i))
+}
 
     /*Breakpoints*/
     @media (max-width : 1200px)
@@ -725,11 +760,11 @@ section{
             top:100%;
             left:-100%;
             width:100%;
-            padding: 1rem 1%;
+            padding: 1rem 4%;
             background: var(--main-color);
             box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
             z-index: 1;
-            transition:.25s ease;
+            transition: .25s ease;
             transition-delay: .25s;
         }
         .navbar.active
@@ -741,10 +776,10 @@ section{
         {
             position: absolute;
             top:0;
-            left:-100;
+            left: -100%;
             width:100%;
             height: 100%;
-            background:yellowgreen;
+            background: var(--bg-color);
             border-top: .1rem solid rgba(0, 0, 0, .2);
             z-index: -1;
             transition: .25s ease;
@@ -761,5 +796,77 @@ section{
             display: block;
             font-size: 2rem;
             margin: 3rem 0;
+            transform: translateX(-20rem);
+            transition-delay: 0s;
         }
+        .navbar.active a 
+        {
+            transform: translateX(0);
+            transition-delay: .25s;
+        }
+
+        .home-imghover
+        {
+            pointer-events:none;
+            background: transparent;
+            opacity:.6;
+        }
+    }
+
+    @media (max-width: 520px)
+    { html {
+        font-size: 50%;
+    }
+
+    .home-content h1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-social
+        {
+            width: 160px;
+        }
+    .home-social a
+    {
+        width: 38px;
+        height: 38px;
+    }
+}
+@media (max-width: 462px)
+    {
+        .home-content h1
+        {
+            font-size: 5.2rem;
+        }
+        .education{
+            padding: 10rem 4% 5rem 5%;
+        }
+        .contact form .input-box .input-field
+        {
+            width: 100%;
+        }
+        .footer
+        {
+            flex-direction: column-reverse;
+        }
+        .footer p 
+        {
+            margin-top: 2rem;
+        }
+    }
+    @keyframes aboutSpinner
+    {100%
+        {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+
+    }
+
+    @keyframes showRight {
+        100%
+        {
+            width: 0;
+        }
+        
     }
