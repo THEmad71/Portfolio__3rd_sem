@@ -372,14 +372,14 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>ME!</span></h2> 
 
-        <form action="#">
+        <form action="mail.php" method ="post">
             <div class="input-box">
                 <div class="input-field">
-                    <input type ="text" placeholder ="Full Name" required>
+                    <input type ="text" name="name" placeholder ="Full Name" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type ="text" placeholder ="Email Address" required>
+                    <input type ="email" name="emailaddress" placeholder ="Email Address" required>
                     <span class="focus"></span>
                 </div>
             </div>
@@ -387,18 +387,18 @@
 
             <div class="input-box">
                 <div class="input-field">
-                    <input type ="number" placeholder ="Mobile Number" required>
+                    <input type ="text" name="mobile" placeholder ="Mobile Number" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type ="text" placeholder ="Email Subject" required>
+                    <input type ="text" name="emailsub" placeholder ="Email Subject" required>
                     <span class="focus"></span>
                 </div>
             </div>
 
 
             <div class="textarea-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <textarea type="text" name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <span class="focus"></span>
             </div>
 
