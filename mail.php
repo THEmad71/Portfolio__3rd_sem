@@ -2,7 +2,8 @@
 //get data from form  
 
 $name = $_POST['name'];
-$email= $_POST['email'];
+$email= $_POST['emailaddress'];
+$emailsub= $_POST['Email Subject'];
 $message= $_POST['message'];
 $number= $_POST['mobile'];
 
