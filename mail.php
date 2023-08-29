@@ -1,25 +1,33 @@
 <?php
-//get data from form  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get data from form
+    $name = $_POST['name'];
+    $email = $_POST['emailaddress'];
+    $emailsub = $_POST['emailsub'];
+    $message = $_POST['message'];
+    $number = $_POST['mobile'];
 
-$name = $_POST['name'];
-$email = $_POST['emailaddress'];
-$emailsub = $_POST['emailsub']; // Corrected field name
-$message = $_POST['message'];
-$number = $_POST['mobile'];
+    // Recipient email address
+    $to = "recipient@example.com"; // Replace with your recipient's email address
 
+    // Email subject
+    $subject = "New Contact Form Submission: $emailsub";
 
+    // Email message
+    $email_message = "Name: $name\r\nEmail: $email\r\nMobile: $number\r\nMessage:\r\n$message";
 
-$to = "mrbangladesh19521971@gmail.com";
-$subject = "Mail From Amad uddin osama";
-$txt ="Name = ". $name . "\r\n  
-Email = " . $email . "\r\n 
-Message =" . $message ."\r\n 
-Mobile Number = ". $number; 
+    // Additional headers
+    $headers = "From: $email\r\n";
 
-$headers = "From: noreply@amadzone.com" . "\r\n" .
-"CC: somebodyelse@example.com";
-if($email!=NULL){
-    mail($to,$subject,$txt,$headers);
+    // Send the email
+    if (mail($to, $subject, $email_message, $headers)) {
+        header("Location: thankyou.html"); // Redirect to thank you page
+        exit();
+    } else {
+        echo "Oops! Something went wrong. Please try again later.";
+    }
+} else {
+    echo "Invalid request.";
 }
 //redirect
 header("Location:thankyou.html");
