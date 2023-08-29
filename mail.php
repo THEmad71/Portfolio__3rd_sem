@@ -13,7 +13,7 @@ $to = "mrbangladesh19521971@gmail.com";
 $subject = "Mail From Amad uddin osama";
 $txt ="Name = ". $name . "\r\n  
 Email = " . $email . "\r\n 
-Message =" . $message;\r\n 
+Message =" . $message ."\r\n 
 Mobile Number = ". $number; 
 
 $headers = "From: noreply@amadzone.com" . "\r\n" .
