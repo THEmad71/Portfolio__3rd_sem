@@ -907,8 +907,8 @@ input[type=number]::-webkit-outer-spin-button
         }
     .home-social a
     {
-        width: 35px;
-        height: 35px;
+        width:  42px;
+        height: 42px;
     }
 }
 @media (max-width: 462px)
