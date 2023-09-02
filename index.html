@@ -368,55 +368,67 @@
 
      <!-----Contact section design-->
      <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>ME!</span></h2> 
-    
-        <form  
-
- action="https://script.google.com/macros/s/AKfycbzVIVAxV3OpuSUR41OiKtEKckwVMFjzuiwcQww0ysrt8vVeMfv-S8-dQKhF1WBxWg5p/exec" method="POST" onsubmit="return redirectToThankYou();">
-
-  <!-- your other form fields go here -->
-
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <span class="focus"></span>
-                </div>
-                <div class="input-field">
-                    <input type="email" name="emailaddress" placeholder="Email Address" required>
-                    <span class="focus"></span>
-                </div>
+        <h2 class="heading">Contact <span>ME!</span></h2>
+        
+        <form action="https://script.google.com/macros/s/AKfycbyef88-nHqUWm3BVyhKA4foMestc0AkHOwSPzz7zoHJdqOqz22_oZqB5EgfyV8u_DcsSg/exec" method="POST" id="google-sheet-form">
+      
+          <!-- your other form fields go here -->
+      
+          <div class="input-box">
+            <div class="input-field">
+              <input type="text" name="name" placeholder="Full Name" required>
+              <span class="focus"></span>
             </div>
-    
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" name="mobile" placeholder="Mobile Number" required>
-                    <span class="focus"></span>
-                </div>
-                <div class="input-field">
-                    <input type="text" name="emailsub" placeholder="Email Subject" required>
-                    <span class="focus"></span>
-                </div>
+            <div class="input-field">
+              <input type="email" name="emailaddress" placeholder="Email Address" required>
+              <span class="focus"></span>
             </div>
-    
-            <div class="textarea-field">
-                <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                <span class="focus"></span>
+          </div>
+      
+          <div class="input-box">
+            <div class="input-field">
+              <input type="text" name="mobile" placeholder="Mobile Number" required>
+              <span class="focus"></span>
             </div>
-    
-            <div class="btn-box btns">
-
-                <button href="thankyou.html" target="_blank"type="submit" class="btn">Submit</button>
-                
+            <div class="input-field">
+              <input type="text" name="emailsub" placeholder="Email Subject" required>
+              <span class="focus"></span>
             </div>
-            <input type="hidden" name="_next" value="">
-</form>
-<script>
-    function redirectToThankYou() {
-        // Redirect to the thank you page
-        window.location.href = 'thankyou.html';
-        return false; // Prevent form submission (optional)
-    }
-    </script>
+          </div>
+      
+          <div class="textarea-field">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <span class="focus"></span>
+          </div>
+      
+          <div class="btn-box btns">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+          <input type="hidden" name="_next" value="">
+        </form>
+      
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbyef88-nHqUWm3BVyhKA4foMestc0AkHOwSPzz7zoHJdqOqz22_oZqB5EgfyV8u_DcsSg/exec';
+          const form = document.getElementById('google-sheet-form');
+      
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+              .then(response => response.json()) // Parse the JSON response
+              .then(data => {
+                if (data.result === 'success') {
+                  // Redirect to the thank you page
+                  window.location.href = 'thankyou.html';
+                } else {
+                  alert("There was an error submitting the form. Please try again later.");
+                }
+              })
+              .catch(error => console.error('Error!', error.message));
+          });
+        </script>
+      
+  
+  
 
     </section>
 
