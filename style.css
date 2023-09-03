@@ -224,7 +224,7 @@ input[type=number]::-webkit-outer-spin-button
     .home-social
     {
         position : absolute;
-        bottom: 6rem;
+        bottom: 7rem;
         width: 170px;
         display: flex;
         justify-content: space-between;
@@ -903,14 +903,16 @@ input[type=number]::-webkit-outer-spin-button
 
     .home-social
         {
-            width: 160px;
+            width: 185px;
         }
     .home-social a
     {
-        width:  42px;
-        height: 42px;
+        width:  38px;
+        height: 38px;
     }
 }
+
+
 @media (max-width: 462px)
     {
         .home-content h1
@@ -933,6 +935,27 @@ input[type=number]::-webkit-outer-spin-button
             margin-top: 2rem;
         }
     }
+
+    @media only screen and (max-width: 414px)
+    { html {
+        font-size: 50%;
+    }
+
+    .home-content h1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-social
+        {
+            width: 185px;
+        }
+    .home-social a
+    {
+        width:  38px;
+        height: 38px;
+    }
+}
     
 
 
